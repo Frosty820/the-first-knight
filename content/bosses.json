@@ -1,0 +1,49 @@
+[
+  {
+    "id": "boss_debt_collector",
+    "type": "boss",
+    "dayInterval": 7,
+    "title": "BOSS: The Debt Comes Due",
+    "text": "Every inn, every toll, every 'borrowed' horse — it all ends up in one ledger. The Collector has found the knight. 'Fifty gold. Or we take it out of you.'",
+    "choices": [
+      { "label": "Pay (−50g)", "requiresGold": 50, "effects": { "gold": -50 }, "result": "The Collector marks the ledger closed with a small, disappointed nod. 'Pleasure doing business. It usually isn't.'" },
+      { "label": "Fight the enforcers", "check": { "stat": "str", "difficulty": 7 }, "success": { "effects": { "hp": -6, "courage": 3 }, "result": "Three enforcers down. The Collector tears the page out himself. 'You're more trouble than you're worth.' The highest compliment the knight has ever received." }, "fail": { "effects": { "hp": -14, "gold": -10 }, "result": "They take the gold AND the teeth. Well. A tooth. The ledger remains open. It is never closed." } },
+      { "label": "Beg for mercy", "check": { "stat": "honour", "difficulty": 3 }, "success": { "effects": { "courage": -2 }, "result": "Something in the knight's eyes — the village they saved, perhaps — moves the Collector. 'One more week. ONE.' Even ledgers have margins." }, "fail": { "effects": { "hp": -8, "honour": -1 }, "result": "The Collector listens politely to the whole speech. Then the enforcers do their work. 'Nothing personal,' he says, and means it." } }
+    ]
+  },
+  {
+    "id": "boss_trial_of_crowds",
+    "type": "boss",
+    "dayInterval": 7,
+    "title": "BOSS: The Trial of the Knight",
+    "text": "The people of {location} drag the knight before a tribunal. They have heard the stories — ALL the stories. 'Defend your record,' says the magistrate. The crowd is not sympathetic.",
+    "choices": [
+      { "label": "Let the record speak", "check": { "stat": "honour", "difficulty": 3 }, "success": { "effects": { "honour": 2, "gold": 10 }, "result": "The magistrate reads every deed aloud. By the end, the crowd is on its feet. Acquitted — and a purse is taken up for the knight's travels." }, "fail": { "effects": { "hp": -5, "honour": -2 }, "result": "The magistrate reads every deed aloud. It is devastating. The knight is pelted with turnips and banished. The turnips were warranted." } },
+      { "label": "Blame the voices that commanded you", "effects": { "honour": -3, "courage": -2 }, "result": "'A thousand voices in my head MADE me do it!' The tribunal deliberates. Verdict: mad, not guilty. The knight is released. The knight hears cheering from somewhere. The knight does not look." },
+      { "label": "Fight your way out", "check": { "stat": "str", "difficulty": 8 }, "success": { "effects": { "hp": -8, "courage": 2, "honour": -4 }, "result": "The knight escapes over a pile of bruised bailiffs. The stories get worse from here. They were already bad." }, "fail": { "effects": { "hp": -15 }, "result": "There were more bailiffs than expected. There are always more bailiffs than expected." } }
+    ]
+  },
+  {
+    "id": "boss_the_mirror_returns",
+    "type": "boss",
+    "dayInterval": 7,
+    "title": "BOSS: What You Have Become",
+    "text": "The mirror knight returns — but it has changed. It wears every choice the knight has made. It looks tired. 'One of us gets to walk away,' it says. 'The other becomes the reflection.'",
+    "choices": [
+      { "label": "Accept the duel", "check": { "stat": "courage", "difficulty": 4 }, "success": { "effects": { "hp": -5, "str": 2 }, "result": "The reflection yields, and for a moment it looks relieved. 'Good,' it whispers, shattering. 'Keep going.' The knight feels stronger, and deeply strange." }, "fail": { "effects": { "hp": -12 }, "result": "The knight wakes on the chapel floor, alone. The mirror is just a mirror. Something about the reflection's smile is different now. Smugger." } },
+      { "label": "Embrace the reflection", "check": { "stat": "honour", "difficulty": 4 }, "success": { "effects": { "hp": 6, "luck": 2 }, "result": "They merge without pain. Every deed, good and ill, settles into one whole person. The knight walks out of the chapel more alive than ever." }, "fail": { "effects": { "honour": -2, "hp": -4 }, "result": "The reflection recoils. 'No. You don't get to make peace with it THAT easily.' The knight is alone with the silence." } }
+    ]
+  },
+  {
+    "id": "boss_last_stand",
+    "type": "boss",
+    "dayInterval": 7,
+    "title": "BOSS: The Last Stand at {location}",
+    "text": "Raiders descend on {location}. The knight could ride away — no one would ever know. The villagers are already looking at the knight with that terrible, hopeful look.",
+    "choices": [
+      { "label": "Stand and defend the village", "check": { "stat": "str", "difficulty": 8 }, "success": { "effects": { "hp": -8, "honour": 4, "gold": 20, "courage": 3 }, "result": "Dawn finds the raiders broken and the knight still standing. The village will name something after the knight. Probably a goat. Still counts." }, "fail": { "effects": { "hp": -16, "honour": 3 }, "result": "The knight falls as the villagers escape into the hills behind them. It was enough. It was just enough." } },
+      { "label": "Ride away", "effects": { "honour": -4, "courage": -3 }, "result": "No one sees the knight leave. Everyone sees the smoke. The knight rides for a long time without stopping." },
+      { "label": "Negotiate with the raiders", "check": { "stat": "luck", "difficulty": 6 }, "success": { "effects": { "gold": -15, "honour": 2 }, "result": "Turns out raiders have mortgages too. They accept a payout and leave. The village is saved and faintly disappointed there was no battle." }, "fail": { "effects": { "hp": -6, "gold": -15 }, "result": "They take the payout AND raid the village. The knight escapes with their life and a valuable lesson about raiders." } }
+    ]
+  }
+]

@@ -1,0 +1,134 @@
+[
+  {
+    "id": "wounded_squire_01",
+    "type": "dilemma",
+    "title": "The Wounded Squire",
+    "text": "A young squire lies bleeding by the road, clutching a sealed letter. \"Please... this must reach the capital. I can pay nothing.\"",
+    "choices": [
+      { "label": "Carry the letter (−2 HP)", "effects": { "hp": -2, "honour": 2 }, "result": "The knight delivers it. Somewhere, a family is spared ruin. The knight sleeps badly anyway." },
+      { "label": "Sell the letter (+15g)", "effects": { "gold": 15, "honour": -2 }, "result": "A spy pays well for secrets. The knight counts coins and does not look back." },
+      { "label": "Walk past", "effects": { "courage": -1 }, "result": "The road is long and full of strangers. The knight keeps walking." }
+    ]
+  },
+  {
+    "id": "surrendered_bandit_01",
+    "type": "dilemma",
+    "title": "The Surrendered {enemy}",
+    "text": "The fight is over. The {enemy} drops their weapon and kneels. \"I have kids,\" they say. Their purse looks heavy.",
+    "choices": [
+      { "label": "Spare them", "effects": { "honour": 2 }, "result": "They vanish into the trees without a word. The knight feels taller, somehow." },
+      { "label": "Take the purse, let them go (+12g)", "effects": { "gold": 12, "honour": -1 }, "result": "A fair trade, the knight tells itself. A life for a purse. Everyone walks away." },
+      { "label": "Finish it. Take everything (+20g)", "effects": { "gold": 20, "honour": -3 }, "result": "It is over quickly. The purse was indeed heavy. So is the silence afterwards." }
+    ]
+  },
+  {
+    "id": "kings_order_01",
+    "type": "dilemma",
+    "title": "The King's Order",
+    "text": "A royal courier delivers a sealed command: the village of {location} shelters rebels. Burn it. Refusal is treason.",
+    "choices": [
+      { "label": "Obey. Burn it", "effects": { "honour": -4, "gold": 25 }, "result": "The crown pays promptly. The smoke follows the knight for miles. No rebels are found in the ashes." },
+      { "label": "Refuse (−5 HP fleeing the guard)", "effects": { "hp": -5, "honour": 4, "courage": 2 }, "result": "The knight rides hard through the night, an outlaw now. The village never learns what it was spared." },
+      { "label": "Warn the village, then burn it empty", "check": { "stat": "luck", "difficulty": 5 }, "success": { "effects": { "honour": 1, "gold": 10 }, "result": "Empty houses burn beautifully. The crown pays. The villagers rebuild elsewhere. A ugly solution that worked." }, "fail": { "effects": { "hp": -4, "honour": -1 }, "result": "The courier notices the empty streets. 'Treason,' he says quietly. The knight barely escapes the whipping." } }
+    ]
+  },
+  {
+    "id": "last_ration_01",
+    "type": "dilemma",
+    "title": "The Last Ration",
+    "text": "One ration left in the pack. A starving child sits at the crossroads, too weak to ask. The knight's own stomach growls. (−3 HP tomorrow without food)",
+    "choices": [
+      { "label": "Give the child the ration (−3 HP)", "effects": { "hp": -3, "honour": 3 }, "result": "The child eats in silence, then sleeps against the knight's leg. The knight is hungrier. The knight is warmer." },
+      { "label": "Split it (−1 HP)", "effects": { "hp": -1, "honour": 1 }, "result": "Half each. Nobody is full. Nobody is empty. The mathematics of decency." },
+      { "label": "Eat it yourself", "effects": { "honour": -2 }, "result": "The knight eats facing away. Survival is not a sin, the knight repeats. Survival is not a sin." }
+    ]
+  },
+  {
+    "id": "burning_barn_01",
+    "type": "dilemma",
+    "title": "The Burning Barn",
+    "text": "A barn is alight. Animals scream inside. Across the yard, the farmhouse door hangs open — a strongbox glints within.",
+    "choices": [
+      { "label": "Save the animals (−3 HP)", "check": { "stat": "courage", "difficulty": 3 }, "success": { "effects": { "hp": -2, "honour": 3 }, "result": "Singed, coughing, the knight kicks open the stalls. The goats are ungrateful. It changes nothing. It changes everything." }, "fail": { "effects": { "hp": -4, "honour": 1 }, "result": "Too late for some. The knight carries out a single terrified hen and sits in the dirt with it for a while." } },
+      { "label": "Take the strongbox (+30g)", "effects": { "gold": 30, "honour": -4 }, "result": "The box is heavy with somebody's whole life. The screaming stops eventually. The knight is already far away." },
+      { "label": "Ride on", "effects": { "courage": -2 }, "result": "Not my fire, the knight thinks. A thought that will return at 3am." }
+    ]
+  },
+  {
+    "id": "witch_bargain_01",
+    "type": "temptation",
+    "title": "The Witch's Bargain",
+    "text": "A witch offers a trade: +2 strength, permanently. The price is one happy memory. She won't say which one.",
+    "choices": [
+      { "label": "Accept (+2 STR)", "effects": { "str": 2, "honour": -1 }, "result": "The knight's arms swell with new power. Something is missing. A face? A song? It doesn't matter. Probably." },
+      { "label": "Refuse", "effects": { "honour": 1 }, "result": "The witch shrugs. 'They always come back,' she says, to no one in particular." },
+      { "label": "Rob the witch instead", "check": { "stat": "str", "difficulty": 7 }, "success": { "effects": { "gold": 35, "honour": -3 }, "result": "Turns out witches keep a lot of gold and very little home security. The knight feels strong AND rich." }, "fail": { "effects": { "hp": -6, "luck": -1 }, "result": "The knight wakes up in a ditch, aching, with a strong suspicion they were briefly a frog." } }
+    ]
+  },
+  {
+    "id": "gamblers_dice_01",
+    "type": "temptation",
+    "title": "The Gambler's Dice",
+    "text": "A one-eyed gambler rattles a cup. 'Double your gold or lose it all. Your luck against mine, friend.'",
+    "choices": [
+      { "label": "Roll (risk all gold)", "check": { "stat": "luck", "difficulty": 4 }, "success": { "goldDouble": true, "result": "The dice land kindly. The gambler weeps theatrically. The knight's purse doubles. The knight should never do that again." }, "fail": { "goldZero": true, "result": "The gambler scoops the pile in one motion. 'Friend,' he says, already looking past the knight, 'you were born to do that.'" } },
+      { "label": "Walk away", "effects": { "courage": -1 }, "result": "The gambler's laughter follows the knight down the road. Sensible. Boring. Sensible." },
+      { "label": "Challenge him to an honest fight", "check": { "stat": "str", "difficulty": 5 }, "success": { "effects": { "gold": 10, "honour": -2, "courage": 1 }, "result": "One punch. The knight takes only half the pot, for dignity's sake. Dignity is flexible." }, "fail": { "effects": { "hp": -4, "gold": -5 }, "result": "The gambler has a knife. Of course the gambler has a knife." } }
+    ]
+  },
+  {
+    "id": "sleeping_dragon_01",
+    "type": "temptation",
+    "title": "The Sleeping Dragon",
+    "text": "A dragon sleeps on a mountain of gold. One loose coin rolls to the knight's feet. The dragon's eye twitches. It is definitely asleep. Probably.",
+    "choices": [
+      { "label": "Take the one coin and leave (+1g)", "effects": { "gold": 1, "honour": 1 }, "result": "One coin. Safest theft in history. Somewhere, a dragon dreams of being slightly poorer." },
+      { "label": "Fill a bag", "check": { "stat": "luck", "difficulty": 6 }, "success": { "effects": { "gold": 60 }, "result": "A bag of dragon gold! The knight doesn't breathe until the cave is a mile behind. Legendary." }, "fail": { "effects": { "hp": -10, "courage": -1 }, "result": "The dragon was NOT asleep. The knight escapes with burns, no gold, and a new perspective on greed." } },
+      { "label": "Wake it and demand tribute", "check": { "stat": "courage", "difficulty": 6 }, "success": { "effects": { "gold": 20, "courage": 2, "honour": -1 }, "result": "The dragon, impressed and slightly amused, pays the toll of a small cave. 'Come back when you're older,' it rumbles." }, "fail": { "effects": { "hp": -12 }, "result": "The dragon was not amused. The knight is mostly intact. Mostly." } }
+    ]
+  },
+  {
+    "id": "toll_bridge_01",
+    "type": "combat",
+    "title": "The Toll Bridge",
+    "text": "A troll blocks the only bridge for miles. 'Toll,' it grunts. 'Ten gold. Or bones.'",
+    "choices": [
+      { "label": "Pay the toll (−10g)", "effects": { "gold": -10 }, "result": "The troll counts it twice, then waves the knight through. Civilisation, of a kind." },
+      { "label": "Fight", "check": { "stat": "str", "difficulty": 6 }, "success": { "effects": { "hp": -3, "courage": 2, "gold": 8 }, "result": "The troll yields, impressed. It even refunds a previous traveller's toll. Honest combat, dishonest money." }, "fail": { "effects": { "hp": -7 }, "result": "Bones nearly paid. The knight limps across, poorer in blood, wiser in trolls." } },
+      { "label": "Ford the river downstream", "check": { "stat": "luck", "difficulty": 3 }, "success": { "effects": { "courage": 1 }, "result": "Cold, wet, free. The troll watches from the bridge, professionally offended." }, "fail": { "effects": { "hp": -2, "gold": -3 }, "result": "The current takes the knight's boots and some loose change. The troll laughs for a solid minute." } }
+    ]
+  },
+  {
+    "id": "mirror_knight_01",
+    "type": "combat",
+    "title": "The Mirror Knight",
+    "text": "In a ruined chapel stands a mirror. The reflection steps out — same armour, same face, but it's smiling. It draws its sword.",
+    "choices": [
+      { "label": "Fight yourself", "check": { "stat": "str", "difficulty": 6 }, "success": { "effects": { "hp": -4, "courage": 3, "str": 1 }, "result": "The reflection shatters. The knight stands alone in the chapel, bleeding, stronger, and no longer sure which one won." }, "fail": { "effects": { "hp": -6 }, "result": "The reflection sheathes its sword and steps back into the glass. 'Not yet,' it says, in the knight's own voice." } },
+      { "label": "Lower your sword and talk", "effects": { "honour": 2, "luck": 1 }, "result": "They talk until dawn. About choices. About the people who make them. The reflection nods, steps back into the mirror, and leaves a small gift of good fortune." },
+      { "label": "Smash the mirror and run", "effects": { "courage": -2 }, "result": "Seven years' bad luck, they say. The knight chooses not to believe that. The knight checks over their shoulder anyway." }
+    ]
+  },
+  {
+    "id": "quiet_campfire_01",
+    "type": "quiet",
+    "title": "A Quiet Night",
+    "text": "No dangers. No strangers. Just a campfire, a sky full of stars, and a knight with time to spare.",
+    "choices": [
+      { "label": "Rest (+4 HP)", "effects": { "hp": 4 }, "result": "Real sleep, the deep kind. The knight wakes up feeling almost new." },
+      { "label": "Train (+1 STR)", "effects": { "str": 1, "hp": -1 }, "result": "A thousand practice swings under the stars. The blisters are worth it." },
+      { "label": "Write in the journal", "effects": { "luck": 1, "honour": 1 }, "result": "The knight writes it all down. The good, the bad, the votes. Somehow, tomorrow feels luckier already." }
+    ]
+  },
+  {
+    "id": "traveling_merchant_01",
+    "type": "stranger",
+    "title": "The Traveling Merchant",
+    "text": "A merchant with suspiciously white teeth displays his wares: 'Potion of health! Finest steel! Mystery box! All genuine, mostly!'",
+    "choices": [
+      { "label": "Buy the potion (−8g, +5 HP)", "requiresGold": 8, "effects": { "gold": -8, "hp": 5 }, "result": "Tastes like pond water. Works like a miracle. Mostly genuine indeed." },
+      { "label": "Buy the whetstone (−6g, +1 STR)", "requiresGold": 6, "effects": { "gold": -6, "str": 1 }, "result": "An hour of careful sharpening. The blade sings now. Money well spent." },
+      { "label": "The mystery box (−10g)", "requiresGold": 10, "check": { "stat": "luck", "difficulty": 4 }, "success": { "effects": { "gold": -10, "str": 2, "hp": 3 }, "result": "Inside: an enchanted gauntlet and a small cake. Best purchase of the knight's life." }, "fail": { "effects": { "gold": -10 }, "result": "Inside: a smaller box. Inside that: a note reading 'No refunds.'" } }
+    ]
+  }
+]

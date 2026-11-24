@@ -1,0 +1,5 @@
+{
+  "enemy": ["bandit", "highwayman", "deserter", "poacher", "debt collector", "mercenary"],
+  "location": ["Millbrook", "Ashford", "Dunmore", "Kilvara", "Thornfield", "Blackfen"],
+  "loot": ["silver locket", "signet ring", "pouch of coins", "carved idol", "silk scarf", "ivory comb"]
+}
